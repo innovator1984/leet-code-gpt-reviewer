@@ -1,0 +1,25 @@
+<CallScreen>
+    FitImage:
+        id: title_image
+        source: "data/images/avatar.jpg"
+
+    Label:
+        text: root.dialog
+        text_size: (self.width, None)
+        canvas.before:
+            Color:
+                rgba: 0.2, 0.2, 0.6, 0.8  # Цвет фона в формате (R, G, B, A)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+    AnchorLayout:
+        anchor_x: "center"
+        anchor_y: "bottom"
+
+        MDTextField:
+            hint_text: "Введите ваш вопрос"
+            color_mode: 'custom'
+            icon_right: "send"
+            mode: "fill"
+            on_text_validate: root.on_enter(self, self.text)
